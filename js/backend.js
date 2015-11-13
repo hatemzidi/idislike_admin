@@ -18,7 +18,7 @@ function getMap() {
 
 
     $('#gmap-marker').gmap({'zoom': 2, 'center': '20,0', 'disableDefaultUI': true}).bind('init', function (e, map) {
-        $.getJSON('../_api_map.php', function (data) {
+        $.getJSON('../backend/_api_map.php', function (data) {
 
             $.each(data, function (i, item) {
                 var content = item.city === '' ? '?' : '<img src="images/blank.gif" class="flag flag-' + item.isoCode + '" /> ' + item.city;
@@ -52,7 +52,7 @@ function getMapLarge() {
 
     var datum;
 
-    $.getJSON('../_api_map_large.php', function (data) {
+    $.getJSON('../backend/_api_map_large.php', function (data) {
         datum = data;
         google.setOnLoadCallback(drawRegionsMap)
     });
@@ -73,7 +73,7 @@ function getMapLarge() {
 
 function getCounters() {
     if ($('#dislikes').length) {
-        $.getJSON('../_api_counters.php', function (stream) {
+        $.getJSON('../backend/_api_counters.php', function (stream) {
             Morris.Donut({
                 element: 'dislikes',
                 data: [
@@ -125,7 +125,7 @@ function getCounters() {
 
 function getStats() {
     if ($('#hourly').length) {
-        $.getJSON('../_api_stats.php', function (stream) {
+        $.getJSON('../backend/_api_stats.php', function (stream) {
             Morris.Bar({
                 element: 'hourly',
                 data: stream.hourstats,
