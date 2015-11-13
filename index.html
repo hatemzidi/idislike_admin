@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Expires" content="Tue, 01 Jan 2000 12:12:12 GMT">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="description" content="disklike bookmarklet"/>
+    <meta name="keywords"
+          content="blueminds, hatem zidi, freelance, @tom_z, facebook, dislike, bookmarklet"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="author" content="hatem zidi, hatem.zidi@gmail.com"/>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/ico">
+
+  <title>iDislike Admin</title>
+
+  <link href="css/style.default.css" rel="stylesheet">
+  <link href="css/jquery.datatables.css" rel="stylesheet">
+  <link href="css/sunriseSunset.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+
+  <div class="leftpanel">
+
+    <div class="logopanel">
+        <h1><img src="images/logo.png"/> iDislike</h1>
+    </div><!-- logopanel -->
+
+    <div class="leftpanelinner">
+
+      <h5 class="sidebartitle">Navigation</h5>
+      <ul class="nav nav-pills nav-stacked nav-bracket">
+        <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a></li>
+      </ul>
+
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+
+  <div class="mainpanel">
+
+    <div class="headerbar">
+
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+
+    </div><!-- headerbar -->
+
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Dashboard</h2>
+    </div>
+
+    <div class="contentpanel">
+
+      <div class="row">
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-success panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                      <small class="stat-label">Global Dislikes</small>
+                    <div id="dislikes" class="counter"></div>
+                  </div>
+                </div><!-- row -->
+              </div><!-- stat -->
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-warning panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                      <small class="stat-label">Coming from ...</small>
+                    <div id="referrers" class="counter"></div>
+                  </div>
+                </div><!-- row -->
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+       <!-- <div class="col-sm-6 col-md-3">
+          <div class="panel panel-primary panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                      <small class="stat-label">Browsers</small>
+                      <div id="browsers" class="counter"></div>
+                  </div>
+                </div>&lt;!&ndash; row &ndash;&gt;
+
+              </div>&lt;!&ndash; stat &ndash;&gt;
+
+            </div>&lt;!&ndash; panel-heading &ndash;&gt;
+          </div>&lt;!&ndash; panel &ndash;&gt;
+        </div>&lt;!&ndash; col-sm-6 &ndash;&gt;-->
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-primary panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Origin</small>
+                    <div id="origins" class="counter"></div>
+                  </div>
+                </div><!-- row -->
+
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-dark panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Operating Systmes</small>
+                      <div id="os" class="counter"></div>
+                  </div>
+                </div><!-- row -->
+
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+      </div><!-- row -->
+
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 hidden-xs">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Map</h4>
+                    <p class="mb15">Last 12 hours</p>
+                </div><!-- panel-heading -->
+                <div class="panel-body map">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="gmap-marker" style="height: 400px"></div>
+                        </div><!-- col-md-12 -->
+                    </div><!-- row -->
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-sm-12 -->
+      </div><!-- row -->
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5 class="subtitle mb5">Hourly</h5>
+                  <p class="mb15">Dislikes per hour</p>
+                  <div id="hourly" style="width: 100%; height: 300px; margin-bottom: 20px"></div>
+                </div><!-- col-sm-12 -->
+              </div><!-- row -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-9 -->
+      </div><!-- row -->
+
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5 class="subtitle mb5">Daily Origins</h5>
+                  <p class="mb15">Origin of Dislikes per hour for the last 7 days</p>
+                  <div id="origins_daily" style="width: 100%; height: 300px; margin-bottom: 20px"></div>
+                </div><!-- col-sm-12 -->
+              </div><!-- row -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-9 -->
+      </div><!-- row -->
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5 class="subtitle mb5">Daily</h5>
+                  <p class="mb15">Last 7 days</p>
+                  <div id="daily" style="width: 100%; height: 300px; margin-bottom: 20px"></div>
+                </div><!-- col-sm-12 -->
+              </div><!-- row -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-9 -->
+      </div><!-- row -->
+
+      <div class="row">
+          <div class="col-sm-12 col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <h5 class="subtitle mb5">Weekly</h5>
+                              <p class="mb15">Last 15 days ...</p>
+                              <div id="weekly" style="width: 100%; height: 300px; margin-bottom: 20px"></div>
+                          </div><!-- col-sm-12 -->
+                      </div><!-- row -->
+                  </div><!-- panel-body -->
+              </div><!-- panel -->
+          </div><!-- col-sm-9 -->
+      </div><!-- row -->
+
+
+
+      <div class="row">
+          <div class="col-lg-12">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-warning panel-alt widget-today">
+                <div class="panel-heading text-center">
+                  <i class="fa fa-calendar-o"></i>
+                </div>
+                <div class="panel-body text-center">
+                  <h3 class="today date"></h3>
+                </div><!-- panel-body -->
+              </div><!-- panel -->
+            </div>
+
+            <div class="col-xs-6">
+              <div class="panel panel-danger panel-alt widget-time">
+                <div class="panel-heading text-center">
+                  <i class="glyphicon glyphicon-time"></i>
+                </div>
+                <div class="panel-body text-center">
+                  <h3 class="today time"></h3>
+                </div><!-- panel-body -->
+              </div><!-- panel -->
+            </div>
+          </div>
+        </div><!-- col-sm-6 -->
+
+      </div>
+
+    </div><!-- contentpanel -->
+
+  </div><!-- mainpanel -->
+
+</section>
+
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.sparkline.min.js"></script>
+<script src="js/toggles.min.js"></script>
+<script src="js/retina.min.js"></script>
+<script src="js/jquery.cookies.js"></script>
+
+<script src="js/flot/flot.min.js"></script>
+<script src="js/flot/flot.resize.min.js"></script>
+<script src="js/morris.min.js"></script>
+<script src="js/raphael-2.1.0.min.js"></script>
+
+<script src="js/jquery.datatables.min.js"></script>
+<script src="js/chosen.jquery.min.js"></script>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.exp&sensor=true"></script>
+<script src="js/jquery.ui.map.full.min.js"></script>
+<script src="js/sunriseSunset/SunriseSunset.js"></script>
+<script src="js/sunriseSunset/SunriseSunsetLayer.js"></script>
+
+<script src="js/moment.min.js"></script>
+
+
+<script src="js/backend.js"></script>
+<script src="js/custom.js"></script>
+<script> getMap(true) </script>
+<!--<script src="js/dashboard.js"></script>-->
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+@import url("flags.css");
+
+.panel-body.map {
+    padding: 0 !important;
+}
+
+.counter {
+    height: 165px;
+    text-align: center;
+}
+
+.panel-stat .stat {
+    margin: 0 auto;
+}
+
+
+
+

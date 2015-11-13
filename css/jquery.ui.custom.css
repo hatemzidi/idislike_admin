@@ -1,0 +1,22 @@
+
+/*Range input*/
+.ui-slider-horizontal{
+    width: 350px;
+    background: url(../images/range.png) no-repeat right -35px;
+    height: 10px;
+    border: none;
+}
+
+.ui-slider-range{
+    background: url(../images/range.png) no-repeat left -25px !important;
+    border: none;
+}
+.ui-slider-handle{
+    width: 25px !important;
+    height: 25px !important;
+    background: url(../images/range.png) no-repeat !important;
+    border: none !important;
+    top: -7px !important;
+    margin-left: -13px !important;
+    cursor: pointer !important;
+}
