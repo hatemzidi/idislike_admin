@@ -141,8 +141,8 @@ function getStats() {
                 element: 'origins_daily',
                 data: stream.origins,
                 xkey: 'dh',
-                ykeys: ['comment', 'chat'],
-                labels: ['comments', 'chatbox'],
+                ykeys: ['comment', 'chat', 'keyboard'],
+                labels: ['comments', 'chatbox', 'keyboard'],
                 parseTime: false,
                 hideHover: 'auto'
             });
